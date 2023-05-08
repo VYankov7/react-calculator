@@ -66,8 +66,8 @@ function reducer(state, { type, payload }) {
         return {
           ...state,
           overwrite: false,
-          currentOperand: null
-        }
+          currentOperand: null,
+        };
       }
       if (state.currentOperand == null) return state;
       if (state.currentOperand.length === 1) {
@@ -94,6 +94,8 @@ function reducer(state, { type, payload }) {
         operation: null,
         currentOperand: evaluate(state),
       };
+    default:
+    // do nothing
   }
 }
 
@@ -115,6 +117,8 @@ function evaluate({ currentOperand, previousOperand, operation }) {
     case "÷":
       computation = prev / current;
       break;
+    default:
+    // do nothing
   }
 
   return computation.toString();
@@ -122,13 +126,13 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 
 const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
   maximumFractionDigits: 0,
-})
+});
 
 function formatOperant(operand) {
-  if (operand == null ) return
-  const [integer, decimal] = operand.split('.')
-  if (decimal == null ) return INTEGER_FORMATTER.format(integer)
-  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`
+  if (operand == null) return;
+  const [integer, decimal] = operand.split(".");
+  if (decimal == null) return INTEGER_FORMATTER.format(integer);
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
 }
 
 function App() {
@@ -141,7 +145,7 @@ function App() {
     <div className="calculator-grid">
       <div className="output">
         <div className="previous-operand">
-        {formatOperant(previousOperand)} {operation}
+          {formatOperant(previousOperand)} {operation}
         </div>
         <div className="current-operand">{formatOperant(currentOperand)}</div>
       </div>

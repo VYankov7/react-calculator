@@ -8,14 +8,14 @@ body {
 }
 
 .header {
-  border: 1px solid;
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 15px;
   margin-bottom: 40px;
-  font-style: italic;
   color: #253b66;
+  font-family: 'Monomaniac One', sans-serif;
+  font-size: 3rem;
   
 }
 .header:hover {

@@ -143,7 +143,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="header">A simple calculator build with React.js</h1>
+      <h1 className="header">Calculator</h1>
 
       <div className="calculator-grid">
         <div className="output">
